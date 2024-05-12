@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>[Q1] Arrays</title>
+<style>
+	* {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 20px;
+	}
+</style>
+</head>
+<body>
+<h3>[Q1] Arrays with Random Numbers</h3>
+Generate ten random numbers and find 1) largest number, 2) smallest number, and 3) mean.
+<hr>
+<script>
+function genRandInt(){
+	// generates a random integer from 0-100 range
+	return Math.floor(Math.random()*100);
+}
+const ARR_SIZE = 10;
+
+// your code goes here...
+
+var myArray = new Array(ARR_SIZE);
+
+for(var i=0;i<ARR_SIZE;++i){
+	myArray[i] = genRandInt();
+}
+
+var largestNumber = myArray[0];
+var smallestNumber = myArray[0];
+var sumOfAllNumbers = 0;
+
+for(var i=0;i<ARR_SIZE;++i){
+	if(largestNumber<myArray[i]) largestNumber=myArray[i];
+	if(smallestNumber>myArray[i]) smallestNumber=myArray[i];
+	sumOfAllNumbers += myArray[i];
+}
+document.write("Random numbers : ");
+for(var i=0;i<ARR_SIZE-1;++i){
+	document.write(myArray[i] + ", ");
+}
+document.write(myArray[ARR_SIZE-1]);
+document.write("<br>");
+document.write("Sum : " + sumOfAllNumbers);
+document.write("<hr>");
+// finally, display some results ....
+document.write("Largest number : " + largestNumber + "<br>");
+document.write("Smallest number : " + smallestNumber + "<br>");
+document.write("Mean : " + sumOfAllNumbers / ARR_SIZE);
+
+document.write("<hr>");
+</script>
+</body>
+</html>

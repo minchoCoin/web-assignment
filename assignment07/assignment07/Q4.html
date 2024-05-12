@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4</title>
+</head>
+<body>
+    <h2>Getting even and odd sum</h2>
+    <br>
+    <hr>
+    <p>Number you entered: <span id = "entered"></span></p>
+    <p>Sum of all numbers: <span id = "sumAll"></span></p>
+    <p>Sum of even numbers: <span id = "sumEven"></span></p>
+    <p>Sum of odd numbers: <span id = "sumOdd"></span></p>
+    <script>
+        function sumAll(x){
+            let sum=0;
+            for(let i=0;i<=x;++i){
+                sum+=i;
+            }
+            return sum;
+        }
+
+        function sumEven(x){
+            let sum=0;
+            for(let i=0;i<=x;++i){
+                if(i%2 ==0) sum+=i;
+            }
+            return sum;
+        }
+
+        function sumOdd(x){
+            let sum=0;
+            for(let i=0;i<=x;++i){
+                if(i%2 !=0) sum+=i;
+            }
+            return sum;
+        }
+
+        let num = parseInt(prompt("Enter an integer.",0));
+        document.getElementById("entered").innerText=num;
+        document.getElementById("sumAll").innerText=sumAll(num);
+        document.getElementById("sumEven").innerText=sumEven(num);
+        document.getElementById("sumOdd").innerText=sumOdd(num);
+
+    </script>
+</body>
+</html>

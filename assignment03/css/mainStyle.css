@@ -1,0 +1,50 @@
+body{
+    margin : 30px;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1{
+    text-align : center;
+	color : orange;
+	text-shadow : 2px 2px 3px blue;
+}
+a{
+    text-decoration: none;
+    color : white;
+}
+
+#container{
+    background-color: gray;
+    
+}
+
+ul#myMenu > li { 
+    margin : 3px;
+    padding-left: 20px;
+    text-align: left;
+    display:inline-block; 
+    padding-right: 50px;
+    position: relative;
+    color : white;
+}
+
+ul#myMenu > li ul { 
+    display:none; 
+    position:absolute; 
+    padding-left: 15px;
+   
+}
+ul#myMenu > li:hover ul { 
+    display:block; 
+}
+ul#myMenu > li ul li{
+    list-style : none;
+    background-color: gray;
+    padding-right: 15px;
+    
+}
+iframe{
+    border : none;
+}
+hr{
+    border : 2px solid lightgray;
+}

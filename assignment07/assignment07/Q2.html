@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2</title>
+    <style>
+        
+        td{
+            width:50px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Getting squared numbers and making a table.</h2>
+    <h2>Calculating n^2 from n=0~N</h2>
+    <hr>
+    You entered: <span id="inputNumber"></span>
+    <br><br>
+    <script>
+        let num = parseInt(prompt("Enter an integer",0));
+        document.getElementById("inputNumber").innerText = num;
+        document.write('<table border="1">');
+        for(let i=0;i<2;++i){
+            document.write('<tr>');
+            if(i==0){
+                
+                document.write('<td> n </td>');
+                for(let j=0;j<=num;++j){
+                document.write('<td>');
+                document.write(j);
+                document.write('</td>')
+                
+                }
+            }
+            else{
+                
+                document.write('<td> n^2 </td>');
+                for(let j=0;j<=num;++j){
+                document.write('<td>');
+                document.write(j*j);
+                document.write('</td>')
+                
+                }
+             
+        }
+        document.write('</tr>');
+
+        
+    }
+    document.write('</table>');
+    </script>
+</body>
+</html>

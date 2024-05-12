@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3</title>
+</head>
+<body>
+    <hr>
+    <div id="answer"></div>
+    <hr>
+    <script>
+        function isValid(n){
+            return n!=null && n!="";
+        }
+        let name=prompt("Enter your name","");
+        let dept=prompt("Enter your department/major","");
+
+        let ans;
+        if(isValid(name)&&isValid(dept)){
+            ans="Hello, my name is "+name+" and my major is "+dept + ".";
+        }
+        else if(isValid(name)){
+            ans="Hello, my name is "+name + "."
+        }
+        else if(isValid(dept)){
+            ans="Hello, my major is "+dept + "."
+        }
+        else{
+            ans="Hello!"
+        }
+        document.getElementById("answer").innerText = ans;
+    </script>
+</body>
+</html>

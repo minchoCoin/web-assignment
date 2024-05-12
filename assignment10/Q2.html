@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Questions and Answers</title>
+<script>
+function addAnswer(obj, text) {
+	// complete the following lines
+	const p = document.createElement("p");
+	p.innerHTML = text;
+	obj.parentElement.appendChild(p);
+}
+</script>
+</head>
+<body>
+<h3>[Q2] Dynamically adding answers</h3>
+<hr>
+<div><p>Q) Octopuses have multiple hearts. Yes or No?</p>
+	<button onclick="addAnswer(this, 'Yes, it has three.')">Click to see the answer</button>
+</div>
+<hr>
+<div><p>Q) Which company makes the most tires each year?</p>
+	<button onclick="addAnswer(this, 'Lego')">Click here to see the answer</button></div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Assignment06</title>
+    <style>
+        tr{
+            text-align: center;
+        }
+    </style>
+    <script>
+        function help(){
+            alert("Do your best!");
+        }
+        function plus(){
+            let a = 10+20;
+            let msg = document.getElementById("placeForPlus");
+            msg.innerHTML = a;
+        }
+        function mult(){
+            let a = 10*20;
+            let msg = document.getElementById("placeForMult");
+            msg.innerHTML = a;
+        }
+        function getName(){
+            let a = prompt("Enter your name","Jane John Doe")
+            let msg = document.getElementById("placeForName");
+            if(a==null){
+                msg.innerHTML = "Cancelled or closed";
+            }
+            else{
+                msg.innerHTML = a;
+            }
+        }
+        function getHobby(){
+            let a = prompt("Enter your hobby","Playing Basketball")
+            let msg = document.getElementById("placeForHobby");
+            if(a==null){
+                msg.innerHTML = "Cancelled or closed";
+            }
+            else{
+                msg.innerHTML = a;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Table and JavaScript Dialogs</h1>
+    <hr>
+    <button onclick="help()">See help!</button>
+    <br>
+    <br>
+    <table border="1" width="400px" height="400px">
+        <tr>
+            <td>
+                10 + 20 = ?
+                <div id="placeForPlus"></div>
+                <button onclick = "plus()">Calculate</button>
+            </td>
+            <td>
+                10 x 20 = ?
+                <div id="placeForMult"></div>
+                <button onclick = "mult()">Calculate</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                My name is : 
+                <div id="placeForName"></div>
+                <button onclick = "getName()">Answer</button>
+            </td>
+            <td>
+                My hobby is : 
+                <div id="placeForHobby"></div>
+                <button onclick = "getHobby()">Answer</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,8 @@
+.textbox:hover{
+    background-color: aqua;
+}
+.textbox:focus{
+    background-color: aqua;
+    color : red;
+    font-size:150%;
+}

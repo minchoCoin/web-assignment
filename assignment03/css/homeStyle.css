@@ -1,0 +1,22 @@
+@keyframes myanim{
+    0%{background-color: red;}
+    50%{background-color: green;}
+    100%{background-color: blue;}
+    
+}
+body{
+    margin : 0px;
+    animation: 5s myanim;
+    animation-iteration-count: infinite;
+}
+p#helloWorld{
+    font-size: xx-large;
+    color : white;
+    
+}
+div#container{
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items :center;
+}

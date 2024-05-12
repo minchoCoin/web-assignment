@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q1</title>
+</head>
+<body>
+    
+    <h2>Get two and return the max</h2>
+    <hr>
+    <div id="answer"></div>
+    <script>
+        function compare(x,y){
+            let ans;
+            if(x>y) ans=x + " is greater than " + y;
+            else if(x<y) ans=x + " is smaller than " + y;
+            else ans = x + " and " + y + " are equal";
+            return ans;
+        }
+        let v1 = parseInt(prompt("Enter the first integer",0))
+        let v2 = parseInt(prompt("Enter the second integer",0))
+        let divAnswer = document.getElementById("answer");
+        divAnswer.innerText = compare(v1,v2);
+    </script>
+</body>
+</html>

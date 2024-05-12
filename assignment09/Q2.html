@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>[Q2] String matching</title>
+<style>
+	body {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 20px;
+	}
+	span {color: red;}
+</style>
+</head>
+<body>
+<h3>[Q2] String matching</h3>
+Enter a sentence (or a long word) and a short word.
+Then, find the earliest match!</h3>
+<hr>
+<script>
+let sentence = "";
+let word="";
+
+function getSentence(){
+	sentence = prompt("Enter a sentence or a long word", "Hello");
+	document.getElementById("sentence").innerHTML = "Sentence : " + sentence;
+}
+function getWord(){
+	word = prompt("Enter a short word", "ell");
+	document.getElementById("word").innerHTML = "Searching word : " + word;
+}
+function findFirstMatch(){
+	let index=0;
+	let find=false;
+	let coloring="";
+	let len = sentence.length;
+	for(let i=0;i<len;++i){
+		if(sentence.substr(i,word.length) == word){
+			find=true;
+			index=i;
+			document.getElementById("index").innerHTML = "Result (index) : Found at index " + index;
+			for(let j=0;j<len;++j){
+				if(j==index) {coloring = coloring + "<span>" + sentence[j];}
+				if(j==index+word.length-1) {coloring = coloring + sentence[j] + "</span>";}
+				if(j!=index && j!=index+word.length-1) { coloring = coloring +=sentence[j];}
+			}
+			document.getElementById("coloring").innerHTML ="Result (coloring) : " + coloring;
+			break;
+		}
+	}
+	if(!find){
+		document.getElementById("index").innerHTML = "Result (index) : Not found ";
+		document.getElementById("coloring").innerHTML ="Result (coloring) : " + sentence;
+	}
+
+}
+
+// you'll find the 'substr' function useful
+// sentence.substr(from_index, how_many) 
+
+</script>
+<button onclick="getSentence()">Enter a sentence</button>
+<button onclick="getWord()">Enter a word</button>
+<button onClick="findFirstMatch()">Find the first match</button>
+<div id="sentence">Sentence : ?</div>
+<div id="word">Searching word : ?</div>
+<div id="index">Result (index) : ?</div>
+<div id ="coloring">Result (coloring) : ?</div>
+</body>
+</html>

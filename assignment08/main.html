@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book search</title>
+    <style>
+        #confirmTitle{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <div>Enter a book title : <input type="text" id="book-title" name="booktitle"> <button type="button" id="getTitle" onclick="getTitle()">Click to confirm</button></div>
+    <div>How many items to display : 
+        <select name="count" id="count">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <button type="button" id="getCount" onClick="getCount()">Click to confirm</button>
+    </div>
+    <hr>
+    <div>User-entered book title : <span id="confirmTitle"></span></div>
+    <div>Number of items to display : <span id="confirmCount"></span></div>
+    <hr>
+    <button type="button" id="sendQuery" onClick="sendQuery()">Send Query</button>
+    <hr>
+    <div id="table"></div>
+    <script
+			  src="https://code.jquery.com/jquery-3.7.0.min.js"
+			  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+			  crossorigin="anonymous"></script>
+		
+    <script>
+        function getTitle(){
+            let userInput = document.getElementById("book-title").value;
+            if(userInput.length<1)
+                document.getElementById("confirmTitle").innerHTML="(empty)";
+            else
+                document.getElementById("confirmTitle").innerHTML=userInput;
+        }
+        function getCount(){
+            let userInput = document.getElementById("count").value;
+           
+            document.getElementById("confirmCount").innerHTML=userInput;
+        }
+        function sendQuery(){
+            getTitle();
+            getCount();
+            var title = document.getElementById("confirmTitle").innerText
+            var count = document.getElementById("confirmCount").innerText;
+            if(title.length<=0 || title == "(empty)" || count.length<=0){
+                alert("Not enough arguments given.");
+                return;
+            }
+            
+            var myKey = "4044a16b534ea1b1e115bae195190dfa";
+            var searchKeyword = title;
+            var request = $.ajax({
+                method: "GET",
+                url: "https://dapi.kakao.com/v3/search/book?target=title",
+                data: {query : searchKeyword},
+                headers : {Authorization: "KakaoAK " + myKey}
+            })
+            request.done(function(msg){
+                let result="";
+                result+='<table border="1">';
+                for(let i=0;i<count && i<msg.meta.total_count;++i){
+                    result+='<tr>';
+                    for(let j=0;j<3;++j){
+                        result+='<td>';
+                        if(j==0){
+                            result+="-" + i + "-";
+                        }
+                        else if(j==1){
+                            result+=msg.documents[i].title;
+                        }
+                        else{
+                            result+="<img src='" + msg.documents[i].thumbnail + "'/>";
+                        }
+                        result+='</td>';
+                    }
+                }
+                result+='</table>';
+                document.getElementById("table").innerHTML = result;
+            })
+            request.fail(function(jqXHR,textStatus){
+                
+                let result=" - failed : " + textStatus +"<br>";
+                document.getElementById("table").innerHTML = result;
+            })
+        }
+    </script>
+</body>
+</html>

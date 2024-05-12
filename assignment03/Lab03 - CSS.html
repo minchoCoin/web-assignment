@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 03 (CSS)</title>
+    <link type="text/css" rel="stylesheet" href="css/mainStyle.css">
+</head>
+<body>
+    
+    <h1 id="title">Welcome to my home page!</h1>
+    
+    <div id="container">
+        <ul id="myMenu">
+            <li id="home">
+                <a href=iframeHome.html target="mainIframe">Home (click)</a> 
+            </li>
+            <li>
+                Info (hover, no-click)
+                <ul>
+                    <li><a href=computer.html target="mainIframe">Computer (click)</a> </li>
+                    <li><a href=alanTuring.html target="mainIframe">Alan Turing (click)</a> </li>
+                </ul>
+            </li>
+            <li>
+                <a href="contact.html" target="mainIframe">Contacts (click)</a>
+            </li>
+        </ul>
+
+    </div>
+    
+    <img src="media/beach.jpg" alt="beach" width="100%" height="350px">
+    
+    
+    <iframe src="iframeHome.html" width="100%" height="550px" name="mainIframe"></iframe>
+    
+    <hr>
+
+    <center>
+        <table>
+            <tr>
+                <td><img src="media/PNU.png" width="100" height="100"></td>
+                <td>김태훈(Taehun Kim)<br>전기컴퓨터공학부 정보컴퓨터공학전공<br>Pusan National University</td>
+            </tr>
+        </table>
+            
+        
+    </center>
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>My wish list</title>
+<style>
+	button{
+		margin : 5px;
+	}
+</style>
+<script>
+
+function editItem(obj){
+	let text = prompt("Enter the name of the city:", "");
+	if(text == null || text == "") return;
+	obj.childNodes[0].innerHTML = text;
+}
+function removeItem(child){
+	child.remove();
+}
+function addItem(parent) {
+	let text = prompt("Enter the name of the city:", "");
+	if(text == null || text == "") return;
+	// complete the following lines
+	const editBtn = document.createElement("button");
+	const removeBtn = document.createElement("button");
+	
+	editBtn.innerHTML = "Edit";
+	removeBtn.innerHTML = "Remove";
+
+	const li = document.createElement("li");
+	
+	let span = document.createElement("span");
+	span.innerHTML = text;
+	li.appendChild(span);
+	li.appendChild(editBtn);
+	li.appendChild(removeBtn);
+	parent.appendChild(li);
+	editBtn.onclick = function(){editItem(li)} ;
+	removeBtn.onclick = function(){removeItem(li)};
+}
+
+
+
+</script>
+</head>
+<body>
+<h3>[Q3] My wish list</h3>
+<hr>
+<p>: cities to visit : <span onclick="addItem(document.querySelector('ul'))">click here to add a new city</span></p>
+<ul style="background-color:lightgray">
+   <li>Busan, South Korea (not allowed to edit or remove)</li>
+</ol>
+</body>
+</html>

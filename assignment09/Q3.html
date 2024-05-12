@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>[Q3] book object</title>
+<style>
+	* {
+		font-family: 'Courier New', Courier, monospace;
+		font-size: 20px;
+	}
+</style>
+</head>
+<body>
+<h3>[Q3] book object</h3>
+Enter three book info. Book info you'll be entering is title, author, price (separated by comma).
+Then, find the most expensive book and display its title.
+<hr>
+<script>
+	let bookArray = new Array();
+	function Book(title,author,price){
+		this.title=title;
+		this.author=author;
+		this.price=price;
+	}
+	function findMax(){
+		let maxTitle = bookArray[0].title;
+		let max = bookArray[0].price;
+		for(let i=0;i<bookArray.length;++i){
+			if(max<bookArray[i].price){
+				max = bookArray[i].price;
+				maxTitle = bookArray[i].title;
+			}
+		}
+
+		document.getElementById("explain").innerHTML = maxTitle;
+	}
+	function getBook0Info() {
+		// getting the book info and processing
+		let input = prompt("Enter title, author, price (separate by ,)", "ex) JavaScript,Daniel,20000");
+
+		// you find the 'split' function useful
+		let ar = input.split(",");
+		bookArray.push(new Book(ar[0],ar[1],ar[2]));
+		findMax();
+		// displaying the book info
+		document.getElementById('book0').innerHTML = " " + input;	
+
+	}
+	function getBook1Info() {
+		// getting the book info and processing
+		let input = prompt("Enter title, author, price (separate by ,)", "ex) JavaScript,Daniel,20000");
+
+		// you find the 'split' function useful
+		let ar = input.split(",");
+		bookArray.push(new Book(ar[0],ar[1],ar[2]));
+		findMax();
+		// displaying the book info
+		document.getElementById('book1').innerHTML = " " + input;	
+
+	}
+	function getBook2Info() {
+		// getting the book info and processing
+		let input = prompt("Enter title, author, price (separate by ,)", "ex) JavaScript,Daniel,20000");
+
+		// you find the 'split' function useful
+		let ar = input.split(",");
+		bookArray.push(new Book(ar[0],ar[1],ar[2]));
+		findMax();
+		// displaying the book info
+		document.getElementById('book2').innerHTML = " " + input;	
+
+	}
+</script>
+	<button onclick="getBook0Info()">Enter the 1st book info</button><span id="book0"></span><br>
+	<button onclick="getBook1Info()">Enter the 2nd book info</button><span id="book1"></span><br>
+	<button onclick="getBook2Info()">Enter the 3rd book info</button><span id="book2"></span><br>
+	<hr>
+	The most expensive book is : <span id="explain"></span>
+</body>
+</html>
